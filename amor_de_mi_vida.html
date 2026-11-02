@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para el amor de mi vida 💜</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0d021a;
+            color: #f3e8ff;
+            overflow-x: hidden;
+        }
+
+        .font-serif-romantic {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .font-cursive {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Ambient Animated Background Gradients */
+        .bg-gradient-romantic {
+            background: radial-gradient(circle at 50% 50%, #2e0854 0%, #180330 50%, #090114 100%);
+        }
+
+        .glass-card {
+            background: rgba(25, 10, 45, 0.55);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(216, 180, 254, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(168, 85, 247, 0.15);
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(1deg); }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Pulsing Glow Effect */
+        @keyframes pulseGlow {
+            0%, 100% { filter: drop-shadow(0 0 15px rgba(192, 132, 252, 0.6)) drop-shadow(0 0 35px rgba(147, 51, 234, 0.4)); }
+            50% { filter: drop-shadow(0 0 28px rgba(232, 121, 249, 0.9)) drop-shadow(0 0 60px rgba(168, 85, 247, 0.7)); }
+        }
+
+        .animate-pulse-glow {
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+
+        /* Ballerina Pose Slow Movement Animation */
+        @keyframes sway {
+            0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+            50% { transform: translateY(-8px) scale(1.02) rotate(1.5deg); }
+        }
+
+        .ballerina-sway {
+            animation: sway 7s ease-in-out infinite;
+        }
+
+        /* Page Transition Styles */
+        .page-step {
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+        }
+
+        .page-hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.96) translateY(20px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .page-visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1) translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d021a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #6b21a8;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9333ea;
+        }
+    </style>
+</head>
+<body class="bg-gradient-romantic min-h-screen relative flex items-center justify-center p-4 sm:p-6 overflow-x-hidden selection:bg-purple-500 selection:text-white">
+
+    <!-- Ambient Floating Canvas Particles -->
+    <canvas id="particleCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+    <!-- Music/Audio Toggle (Ambient Audio visualizer state) -->
+    <button id="musicToggle" class="fixed top-5 right-5 z-50 p-3 rounded-full glass-card text-purple-200 hover:text-white hover:border-purple-400 transition-all duration-300 shadow-lg flex items-center gap-2 group">
+        <i id="musicIcon" class="fas fa-heart text-purple-400 group-hover:scale-110 transition-transform"></i>
+        <span id="musicText" class="text-xs font-medium tracking-wider pr-1 hidden sm:inline">Tocar para sentir</span>
+    </button>
+
+    <!-- MAIN CONTAINER -->
+    <main class="relative z-10 w-full max-w-3xl my-auto">
+
+        <!-- ==================== PAGE 1 ==================== -->
+        <section id="page1" class="page-step page-visible flex flex-col items-center justify-center min-h-[85vh] py-8">
+            
+            <!-- Animated Ballerina Silhouette SVG -->
+            <div class="relative w-64 h-64 sm:w-80 sm:h-80 mb-6 flex items-center justify-center ballerina-sway">
+                <!-- Glowing backdrop halo behind ballerina -->
+                <div class="absolute w-48 h-48 sm:w-60 sm:h-60 rounded-full bg-purple-600/20 blur-3xl animate-pulse"></div>
+                <div class="absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-fuchsia-500/20 blur-2xl"></div>
+
+                <!-- SVG Ballerina -->
+                <svg viewBox="0 0 200 200" class="w-full h-full animate-pulse-glow drop-shadow-[0_0_20px_rgba(192,132,252,0.6)]">
+                    <defs>
+                        <linearGradient id="ballerinaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#f5d0fe" />
+                            <stop offset="50%" stop-color="#c084fc" />
+                            <stop offset="100%" stop-color="#7e22ce" />
+                        </linearGradient>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+
+                    <!-- Delicate Ballerina Figure -->
+                    <g fill="url(#ballerinaGrad)">
+                        <!-- Head and Hair Bun -->
+                        <circle cx="102" cy="32" r="7.5" />
+                        <circle cx="107" cy="30" r="4" />
+                        <!-- Graceful Neck & Torso -->
+                        <path d="M100 39 Q101 46 99 55 Q97 68 96 82 L106 82 Q104 68 103 55 Q102 46 100 39 Z" />
+                        <!-- Raised Arm Left (Extended gracefully upward) -->
+                        <path d="M100 46 Q85 36 72 26 Q70 24 73 23 Q87 32 101 43 Z" />
+                        <!-- Curved Arm Right (En Haut pose) -->
+                        <path d="M102 46 Q118 34 125 22 Q127 24 121 34 Q112 46 103 48 Z" />
+                        <!-- Tutu Skirt Layer 1 (Outer Flowing Sparkle) -->
+                        <path d="M96 80 Q60 88 45 102 Q75 106 96 88 Q118 106 150 102 Q135 88 106 80 Z" opacity="0.95" />
+                        <!-- Tutu Skirt Layer 2 (Inner Detail) -->
+                        <path d="M96 82 Q70 94 60 106 Q82 108 97 91 Q112 108 135 106 Q124 94 105 82 Z" fill="#e879f9" opacity="0.8" />
+                        <!-- Leg 1 (Standing on tiptoe - En Pointe) -->
+                        <path d="M98 88 Q97 120 96 152 Q95 168 95 178 L98 178 Q99 168 100 120 Q101 98 100 88 Z" />
+                        <!-- Pointe Shoe Left -->
+                        <path d="M94 176 L97 186 L99 186 L98 176 Z" />
+                        <!-- Leg 2 (Arabesque Extended back right) -->
+                        <path d="M102 88 Q125 118 148 142 Q156 150 165 158 L168 156 Q158 147 150 138 Q128 114 104 88 Z" />
+                        <!-- Pointe Shoe Right -->
+                        <path d="M164 156 L173 162 L172 164 L162 159 Z" />
+                    </g>
+                    <!-- Floating Sparkles around Ballerina -->
+                    <circle cx="65" cy="40" r="1.5" fill="#fff" opacity="0.8" class="animate-ping" />
+                    <circle cx="140" cy="50" r="2" fill="#e879f9" opacity="0.9" />
+                    <circle cx="45" cy="120" r="1.5" fill="#c084fc" opacity="0.7" />
+                    <circle cx="160" cy="110" r="2" fill="#fff" opacity="0.6" />
+                </svg>
+            </div>
+
+            <!-- Page 1 Romantic Card -->
+            <div class="glass-card rounded-3xl p-8 sm:p-12 text-center max-w-xl mx-auto transform transition-all duration-500 hover:border-purple-400/40 animate-float">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-purple-900/40 text-purple-300 text-xs uppercase tracking-widest font-semibold border border-purple-500/30 mb-6">
+                    De mi corazón para el tuyo
+                </span>
+
+                <h1 class="font-serif-romantic text-3xl sm:text-4xl md:text-5xl font-normal leading-tight text-transparent bg-clip-text bg-gradient-to-r from-purple-100 via-fuchsia-200 to-purple-300 mb-8">
+                    Amor de mi vida, te amo con todo mi corazón y quería decirte esto...
+                </h1>
+
+                <!-- Transition Button -->
+                <button id="btnNext" class="group relative inline-flex items-center justify-center px-8 py-4 overflow-hidden rounded-full font-medium transition duration-300 ease-out shadow-2xl hover:scale-105 active:scale-95 focus:outline-none">
+                    <!-- Button Glow Effect -->
+                    <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-600 opacity-80 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <span class="absolute inset-0 w-full h-full bg-purple-500 blur-lg opacity-50 group-hover:opacity-80 transition-opacity duration-300"></span>
+                    
+                    <!-- Button Text & Icon -->
+                    <span class="relative flex items-center gap-3 text-white font-semibold text-base sm:text-lg tracking-wide">
+                        <span>Tengo algo para decirte</span>
+                        <i class="fas fa-sparkles text-yellow-300 group-hover:rotate-12 transition-transform duration-300"></i>
+                    </span>
+                </button>
+            </div>
+        </section>
+
+
+        <!-- ==================== PAGE 2 ==================== -->
+        <section id="page2" class="page-step page-hidden flex flex-col items-center justify-center min-h-[90vh] py-6 sm:py-10">
+            
+            <!-- Illuminated Lilac Flower Background Graphic -->
+            <div class="relative w-full max-w-lg mb-4 flex items-center justify-center">
+                <!-- Outer Aura Glow -->
+                <div class="absolute w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-fuchsia-600/20 blur-3xl animate-pulse"></div>
+                
+                <!-- SVG Glowing Lilac Lotus/Flower -->
+                <svg viewBox="0 0 200 160" class="w-48 h-40 sm:w-64 sm:h-52 animate-pulse-glow drop-shadow-[0_0_25px_rgba(216,180,254,0.8)]">
+                    <defs>
+                        <linearGradient id="petalGradOuter" x1="0%" y1="100%" x2="0%" y2="0%">
+                            <stop offset="0%" stop-color="#4c1d95" />
+                            <stop offset="50%" stop-color="#8b5cf6" />
+                            <stop offset="100%" stop-color="#f0abfc" />
+                        </linearGradient>
+                        <linearGradient id="petalGradInner" x1="0%" y1="100%" x2="0%" y2="0%">
+                            <stop offset="0%" stop-color="#701a75" />
+                            <stop offset="60%" stop-color="#c084fc" />
+                            <stop offset="100%" stop-color="#ffffff" />
+                        </linearGradient>
+                        <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#ffffff" />
+                            <stop offset="40%" stop-color="#f472b6" />
+                            <stop offset="100%" stop-color="#a855f7" stop-opacity="0" />
+                        </radialGradient>
+                    </defs>
+
+                    <!-- Flower Base Stem & Leaves Glow -->
+                    <path d="M100 150 Q100 120 100 100" stroke="#7e22ce" stroke-width="3" fill="none" opacity="0.6" />
+                    <path d="M100 135 Q70 130 50 140 Q75 120 100 125" fill="#581c87" opacity="0.5" />
+                    <path d="M100 135 Q130 130 150 140 Q125 120 100 125" fill="#581c87" opacity="0.5" />
+
+                    <!-- Outer Petals Layer -->
+                    <path d="M100 105 C60 125 20 85 45 55 C65 75 90 95 100 105 Z" fill="url(#petalGradOuter)" opacity="0.85" />
+                    <path d="M100 105 C140 125 180 85 155 55 C135 75 110 95 100 105 Z" fill="url(#petalGradOuter)" opacity="0.85" />
+                    
+                    <path d="M100 105 C40 100 15 50 50 30 C75 50 90 85 100 105 Z" fill="url(#petalGradOuter)" opacity="0.9" />
+                    <path d="M100 105 C160 100 185 50 150 30 C125 50 110 85 100 105 Z" fill="url(#petalGradOuter)" opacity="0.9" />
+
+                    <!-- Middle Petals -->
+                    <path d="M100 105 C60 80 40 30 75 15 C90 40 98 80 100 105 Z" fill="url(#petalGradInner)" />
+                    <path d="M100 105 C140 80 160 30 125 15 C110 40 102 80 100 105 Z" fill="url(#petalGradInner)" />
+
+                    <!-- Center Central Petal -->
+                    <path d="M100 105 C80 65 85 10 100 5 C115 10 120 65 100 105 Z" fill="url(#petalGradInner)" />
+
+                    <!-- Core Glowing Pistil/Stamen -->
+                    <circle cx="100" cy="85" r="18" fill="url(#centerGlow)" />
+                    
+                    <!-- Magical Light Orbs inside flower -->
+                    <circle cx="100" cy="80" r="3" fill="#fff" class="animate-ping" />
+                    <circle cx="93" cy="85" r="2" fill="#fbcfe8" />
+                    <circle cx="107" cy="85" r="2" fill="#fbcfe8" />
+                    <circle cx="100" cy="72" r="2.5" fill="#ffffff" />
+                </svg>
+            </div>
+
+            <!-- Page 2 Deep Romantic Letter Card -->
+            <div class="glass-card rounded-3xl p-6 sm:p-10 md:p-12 text-left max-w-2xl mx-auto shadow-2xl relative overflow-hidden my-auto border border-purple-300/30">
+                
+                <!-- Decorative Top Sparkle Icon -->
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-purple-500/20">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-heart text-purple-400 text-sm"></i>
+                        <span class="font-cursive text-xl sm:text-2xl text-purple-200">Para mi persona favorita</span>
+                    </div>
+                    <span class="text-xs font-mono text-purple-300/60 bg-purple-950/60 px-3 py-1 rounded-full border border-purple-800/40">
+                        main.cpp ❤️
+                    </span>
+                </div>
+
+                <!-- Redacted Heartfelt Letter -->
+                <div class="space-y-4 text-purple-100 text-base sm:text-lg leading-relaxed font-light">
+                    
+                    <p class="first-letter:text-4xl first-letter:font-serif-romantic first-letter:text-purple-300 first-letter:mr-1 first-letter:float-left">
+                        Sé que no te gusta que te pida perdón, pero quería pedírtelo desde lo más profundo de mi corazón. Yo sé que no tengo por qué sentirme con esa culpa de que te doy poco o menos de lo que te mereces, pero lamento muchísimo de verdad no poder entregarte todo lo que quisiera en este instante. A veces quisiera darte más, darte el mundo entero porque te lo mereces de sobra, pero solo te pido un poco de tiempo... ya te voy a poder bajar hasta la luna.
+                    </p>
+
+                    <p>
+                        Vengo hace unos meses sintiéndome mal por dentro porque tampoco he podido pedirte ser mi novia oficial de la manera que quiero y que tan bonito te mereces. Solo quiero que sepas que te amo con todo mi corazón y que voy a lograr darte todo lo que sueñas. Nunca dudes de lo mucho que te amo y espero que jamás sientas que no te doy las cosas por falta de ganas o amor; jamás se compararía con experiencias pasadas de tu vida.
+                    </p>
+
+                    <p>
+                        Te pido perdón por lo de hoy. Te amo de verdad y sos, posta con una mano en el corazón, lo mejor que me ha pasado en la vida. Mientras te escribo todo esto me dan unas ganas enormes de llorar, pero me contengo porque te tengo acá enfrente mío.
+                    </p>
+
+                    <!-- Final Punchline / Romantic Code Metaphor -->
+                    <div class="mt-6 pt-4 border-t border-purple-500/20 bg-purple-950/40 -mx-6 -mb-6 p-6 rounded-b-2xl border-l-4 border-l-fuchsia-400">
+                        <p class="font-serif-romantic text-xl sm:text-2xl italic text-fuchsia-200 text-center sm:text-left">
+                            "Acordate siempre: sos la variable en mi código que me hacía falta para que compile."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Back Button -->
+                <div class="mt-8 text-center sm:text-right">
+                    <button id="btnBack" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-purple-300/80 hover:text-white transition-colors py-2 px-4 rounded-full hover:bg-purple-900/40">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Volver a leer</span>
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer Copyright / Subtle Tag -->
+    <footer class="fixed bottom-3 w-full text-center text-xs text-purple-400/40 pointer-events-none z-10 font-light tracking-widest">
+        HECHO CON TODO EL AMOR DEL MUNDO 💜
+    </footer>
+
+    <!-- JavaScript Interaction Logic -->
+    <script>
+        // Canvas Floating Particles (Magical Glow Stars)
+        const canvas = id('particleCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function id(e) { return document.getElementById(e); }
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 2.5 + 0.5;
+                this.speedY = Math.random() * -0.6 - 0.2;
+                this.speedX = (Math.random() - 0.5) * 0.4;
+                this.opacity = Math.random() * 0.7 + 0.2;
+                this.fade = Math.random() * 0.008 + 0.003;
+                // Purple / Pink tones for particles
+                const colors = ['#f0abfc', '#c084fc', '#e879f9', '#ffffff', '#a855f7'];
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX;
+                this.opacity -= this.fade;
+
+                if (this.opacity <= 0 || this.y < 0) {
+                    this.reset();
+                    this.y = height + 10;
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = Math.max(0, this.opacity);
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = this.color;
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        const particles = Array.from({ length: 65 }, () => new Particle());
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        // DOM Elements
+        const page1 = id('page1');
+        const page2 = id('page2');
+        const btnNext = id('btnNext');
+        const btnBack = id('btnBack');
+        const musicToggle = id('musicToggle');
+        const musicIcon = id('musicIcon');
+        const musicText = id('musicText');
+
+        // Page Navigation with Fade Effect
+        btnNext.addEventListener('click', () => {
+            playSoftTone();
+            page1.classList.remove('page-visible');
+            page1.classList.add('page-hidden');
+
+            setTimeout(() => {
+                page2.classList.remove('page-hidden');
+                page2.classList.add('page-visible');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 400);
+        });
+
+        btnBack.addEventListener('click', () => {
+            playSoftTone();
+            page2.classList.remove('page-visible');
+            page2.classList.add('page-hidden');
+
+            setTimeout(() => {
+                page1.classList.remove('page-hidden');
+                page1.classList.add('page-visible');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 400);
+        });
+
+        // Web Audio API Synth for Romantic Sound Feedback (No external URL dependency)
+        let audioCtx = null;
+        let isAudioPlaying = false;
+        let ambientOscillator = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        function playSoftTone() {
+            try {
+                initAudio();
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
+                osc.frequency.exponentialRampToValueAtTime(659.25, audioCtx.currentTime + 0.4); // E5
+
+                gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.8);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.8);
+            } catch (e) {
+                console.log('Audio init skipped');
+            }
+        }
+
+        // Ambient Harmonic Chord Generator for Music Button
+        musicToggle.addEventListener('click', () => {
+            initAudio();
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            if (!isAudioPlaying) {
+                startAmbientSound();
+                musicIcon.classList.remove('fa-heart');
+                musicIcon.classList.add('fa-music', 'animate-bounce');
+                musicText.innerText = "Música activada 💜";
+                isAudioPlaying = true;
+            } else {
+                stopAmbientSound();
+                musicIcon.classList.remove('fa-music', 'animate-bounce');
+                musicIcon.classList.add('fa-heart');
+                musicText.innerText = "Tocar para sentir";
+                isAudioPlaying = false;
+            }
+        });
+
+        let ambientGain = null;
+        function startAmbientSound() {
+            const freqs = [174.61, 220.00, 261.63, 329.63]; // F3, A3, C4, E4 (Fmaj7 ambient pad)
+            ambientGain = audioCtx.createGain();
+            ambientGain.gain.setValueAtTime(0.01, audioCtx.currentTime);
+            ambientGain.gain.linearRampToValueAtTime(0.08, audioCtx.currentTime + 2);
+
+            freqs.forEach(freq => {
+                const osc = audioCtx.createOscillator();
+                osc.type = 'triangle';
+                osc.frequency.value = freq;
+                
+                // Subtle LFO for breathing effect
+                const lfo = audioCtx.createOscillator();
+                lfo.frequency.value = 0.2; // 0.2 Hz cycle
+                const lfoGain = audioCtx.createGain();
+                lfoGain.gain.value = 1.5;
+                lfo.connect(lfoGain);
+                lfoGain.connect(osc.frequency);
+                lfo.start();
+
+                osc.connect(ambientGain);
+                osc.start();
+            });
+
+            ambientGain.connect(audioCtx.destination);
+        }
+
+        function stopAmbientSound() {
+            if (ambientGain) {
+                ambientGain.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 1);
+                setTimeout(() => {
+                    ambientGain.disconnect();
+                }, 1000);
+            }
+        }
+
+        // Start animations on window load
+        window.onload = function() {
+            animateParticles();
+        };
+    </script>
+</body>
+</html>
